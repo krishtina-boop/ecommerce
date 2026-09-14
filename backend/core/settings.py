@@ -127,6 +127,22 @@ USE_TZ = True
 STATIC_URL = 'static/'
 AUTH_USER_MODEL="users.User"
 
+
+CORS_ALLOWED_ORIGINS = env.list("CORS_ALLOWED_ORIGINS")
+CORS_ALLOW_CREDENTIALS=env.bool('CORS_ALLOW_CREDENTIALS')
+CORS_ALLOW_HEADERS = [
+    'content-type',
+    'authorization',
+]
+CORS_ALLOW_METHODS = [
+    'GET',
+    'POST',
+    'PUT',
+    'PATCH',
+    'DELETE',
+    'OPTIONS',
+]
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
